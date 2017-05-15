@@ -85,7 +85,11 @@ app_license = "MIT"
 # 		"on_trash": "method"
 #	}
 # }
-
+doc_events = {
+	"Item": {
+		"validate": "paperkart.custom_method.validate_item_duplicates"
+	}
+}
 # Scheduled Tasks
 # ---------------
 
@@ -118,4 +122,4 @@ app_license = "MIT"
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "paperkart.event.get_events"
 # }
-fixtures = ["Custom Field"]
+fixtures = ["Custom Field","Custom Script"]
