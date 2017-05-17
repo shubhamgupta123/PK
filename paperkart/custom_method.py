@@ -21,7 +21,8 @@ def validate_item_duplicates(self,method):
 			frappe.throw(_("Item Name: {0} with similar attributes already exists").format(name))
 	# Create Item Description
 	
-	item_description = 	frappe.utils.data.cstr(self.gsm) + "/ " + frappe.utils.data.cstr(self.width_cm) + " cm * " + frappe.utils.data.cstr(self.length_cm) + " cm " + frappe.utils.data.cstr(self.net_weight) + " " + frappe.utils.data.cstr(self.weight_uom) + " " + frappe.utils.data.cstr(self.brand)
+	item_description = 	frappe.utils.data.cstr(self.gsm) + "/ " + frappe.utils.data.cstr(self.width_cm) + " * " + frappe.utils.data.cstr(self.length_cm) + " " + frappe.utils.data.cstr(self.net_weight) + " " + frappe.utils.data.cstr(self.weight_uom) + " " + frappe.utils.data.cstr(self.brand)
 	if not self.override_auto_name:
 		self.item_name = item_description
 	self.description = item_description + frappe.utils.data.cstr(self.core) + frappe.utils.data.cstr(self.dia) + frappe.utils.data.cstr(self.grain) + frappe.utils.data.cstr(self.shade) + frappe.utils.data.cstr(self.finish)
+	self.override_auto_name = 1
