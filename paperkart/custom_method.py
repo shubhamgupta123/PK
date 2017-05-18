@@ -32,7 +32,7 @@ def validate_item_duplicates(self,method):
 			self.description = self.description + frappe.utils.data.cstr(self.core) + frappe.utils.data.cstr(self.dia)
 		item_description = 	frappe.utils.data.cstr(self.gsm) + "/ " + frappe.utils.data.cstr(self.width_cm) + " " + frappe.utils.data.cstr(self.core) + " " + frappe.utils.data.cstr(self.dia) + " " + frappe.utils.data.cstr(self.net_weight) + " " + frappe.utils.data.cstr(self.weight_uom) + " " + frappe.utils.data.cstr(self.brand)
 	#Override auto name generation
-	if not self.override_auto_name:
+	if not self.override_auto_name and self.width_cm:
 		self.item_name = item_description
 		self.description = item_description
 	#if grain/shade and finish exist add to description
