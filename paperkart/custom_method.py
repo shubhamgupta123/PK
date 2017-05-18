@@ -26,13 +26,13 @@ def validate_item_duplicates(self,method):
 	if self.width_cm and self.length_cm:
 		item_description = 	frappe.utils.data.cstr(self.gsm) + "/ " + frappe.utils.data.cstr(self.width_cm) + " * " + frappe.utils.data.cstr(self.length_cm) + " " + frappe.utils.data.cstr(self.net_weight) + " " + frappe.utils.data.cstr(self.weight_uom) + " " + frappe.utils.data.cstr(self.brand)
 	#if only width and no length, then core and dia come into picture
-	if self.width_cm and not self.length_cm:
+	if self.width_cm > 0 and not self.length_cm:
 		#if core and dia exist, assumption if there is core there will be dia
 		if self.core and self.dia:
 			self.description = self.description + frappe.utils.data.cstr(self.core) + frappe.utils.data.cstr(self.dia)
 		item_description = 	frappe.utils.data.cstr(self.gsm) + "/ " + frappe.utils.data.cstr(self.width_cm) + " " + frappe.utils.data.cstr(self.core) + " " + frappe.utils.data.cstr(self.dia) + " " + frappe.utils.data.cstr(self.net_weight) + " " + frappe.utils.data.cstr(self.weight_uom) + " " + frappe.utils.data.cstr(self.brand)
 	#Override auto name generation
-	if not self.override_auto_name and self.width_cm:
+	if not self.override_auto_name and self.width_cm > 0:
 		self.item_name = item_description
 		self.description = item_description
 	#if grain/shade and finish exist add to description
