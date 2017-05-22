@@ -122,4 +122,4 @@ doc_events = {
 # override_whitelisted_methods = {
 # 	"frappe.desk.doctype.event.event.get_events": "paperkart.event.get_events"
 # }
-fixtures = ["Custom Field","Property Setter","Custom Script"]
+fixtures = ["Custom Field","Custom Script"]
