@@ -7,6 +7,9 @@ from frappe import _
 
 def validate_item_duplicates(self,method):
 
+	def calculate():
+		pass
+
 	if self.core or self.dia:
 		#should core and dia be added to key
 		pass		
